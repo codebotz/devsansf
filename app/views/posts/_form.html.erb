@@ -1,0 +1,41 @@
+
+  <div class="panel-body">
+  <%= form_for(post) do |f| %>
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+        <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+
+    <div class="field form-group">
+      <%= f.label :titulo %>
+      <%= f.text_field :titulo, class: 'form-control' %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :descripcion %>
+      <%= f.text_field :descripcion, class: 'form-control' %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :likes %>
+      <%= f.number_field :likes, class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Crear post", class: 'btn btn-info' %>
+    </div>
+  <% end %>
+</div>
+
+  </div>
+</div>
+
