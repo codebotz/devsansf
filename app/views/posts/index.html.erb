@@ -5,40 +5,55 @@
             <%= content_tag(:div, msg, class: "alert alert-info") %>
           <% end %>
       </div>
-      </div>
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">
-        <h1>Posts</h1>
-        <%= link_to 'New Post', new_post_path, class: "btn btn-info" %>
-      </div>
-      <div class="panel-body">
-        <p></p>
-      </div>
-
-      <!-- Table -->
-      <table class="table">
-      <thead>
-        <tr>
-          <th>Titulo</th>
-          <th>Descripcion</th>
-          <th>Likes</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @posts.each do |post| %>
-          <tr>
-            <td><%= post.titulo %></td>
-            <td><%= post.descripcion %></td>
-            <td><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><%= post.likes %></td>
-            <td><%= link_to 'Show', post %></td>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
     </div>
-</div><!-- /.container -->
+    <div class="panel panel-default">
+    <div class="col-md-8 col-md-offset-0">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+          <h1>Posts</h1>
+          <%= link_to 'New Post', new_post_path, class: "btn btn-info" %>
+        </div>
+        <div class="panel-body">
+          <p></p>
+        </div>
+
+
+        <div class="row marketing">
+        <% @posts.each do |post| %>
+          <div class="col-lg-6">
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">
+                <h3><%= post.titulo %></h3>
+                <code><%= time_ago_in_words(post.created_at) %> ago</code>
+                <i class="fa fa-thumbs-o-up" aria-hidden="true"><%= post.likes%></i>
+              </div>
+              <div class="panel-body">
+                <p><%= post.descripcion %></p>
+              </div>
+            </div>
+            
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h1>Aside</h1>
+      <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
